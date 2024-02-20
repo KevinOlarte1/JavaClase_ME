@@ -3,19 +3,16 @@
  */
 package javaclase.app;
 
-import javaclase.list.LinkedList;
+import javaclase.con.kevinolarte.ejr.tema07_2.Pila;
+import javaclase.con.kevinolarte.ejr.tema07_2.analizadorTexto;
+import javaclase.con.kevinolarte.ejr.tema07_2.recoletorTexto;
 
-import static javaclase.utilities.StringUtils.join;
-import static javaclase.utilities.StringUtils.split;
-import static javaclase.app.MessageUtils.getMessage;
-
-import org.apache.commons.text.WordUtils;
+import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        LinkedList tokens;
-        tokens = split(getMessage());
-        String result = join(tokens);
-        System.out.println(WordUtils.capitalize(result));
+        recoletorTexto ejr02 = new recoletorTexto();
+        analizadorTexto ejr03 = new analizadorTexto(new Pila(5), ejr02.getTexto());
+        System.out.println(ejr03.correctorCodigo());
     }
 }
