@@ -1,9 +1,9 @@
 package javaclase.con.kevinolarte.ejr.tema07_2;
 
-public class analizadorTexto {
+public class AnalizadorTexto {
     private final Pila pila;
     private final String texto;
-    public analizadorTexto(Pila pila, String texto) {
+    public AnalizadorTexto(Pila pila, String texto) {
         this.pila = pila;
         this.texto = texto;
     }

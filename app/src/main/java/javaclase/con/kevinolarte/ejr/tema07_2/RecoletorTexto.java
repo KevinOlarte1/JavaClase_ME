@@ -2,9 +2,9 @@ package javaclase.con.kevinolarte.ejr.tema07_2;
 
 import java.util.Scanner;
 
-public class recoletorTexto {
+public class RecoletorTexto {
     private final String texto;
-    public recoletorTexto(){
+    public RecoletorTexto(){
         Scanner scanner = new Scanner(System.in);
         StringBuilder stb = new StringBuilder();
 

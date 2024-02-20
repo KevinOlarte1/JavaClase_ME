@@ -5,13 +5,18 @@ package javaclase.app;
 
 import javaclase.con.kevinolarte.ejr.tema07_2.Pila;
 import javaclase.con.kevinolarte.ejr.tema07_2.AnalizadorTexto;
+import javaclase.con.kevinolarte.ejr.tema07_2.AnalizadorWeb;
 import javaclase.con.kevinolarte.ejr.tema07_2.RecoletorTexto;
 
 
 public class App {
     public static void main(String[] args) {
-        RecoletorTexto ejr02 = new RecoletorTexto();
-        AnalizadorTexto ejr03 = new AnalizadorTexto(new Pila(5), ejr02.getTexto());
-        System.out.println(ejr03.correctorCodigo());
+        String txt = "<html lang=\"en\"> <head> <title>Document</title> </head> <body> <h1 aria-busy=\"false\">asda</h1> </body> </html>";
+        
+        //RecoletorTexto ejr02 = new RecoletorTexto();
+        AnalizadorWeb ejr03 = new AnalizadorWeb(new Pila(5), txt);
+        System.out.println(ejr03.analizar());
+
+      
     }
 }
