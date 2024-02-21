@@ -1,10 +1,5 @@
 package javaclase.con.kevinolarte.ejr.tema07_2;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javaclase.con.kevinolarte.lib.Input;
-
 public class AnalizadorWeb {
     private final Pila pila;
     private final String texto;
@@ -71,10 +66,16 @@ public class AnalizadorWeb {
         }
         return pila.isEmpty();
     }
-    public static String eliminarAtributos(String etiquetaHTML) {
+
+    /**
+     * Metodo para devilver una etiqueta sin espacios y sun Atributos
+     * @param etiquetaHTML
+     * @return
+     */
+    public static String eliminarAtributos(String etiquetaHtml) {
        
         //Buscamos los atributos
-        String etiquetaSinAtributos = etiquetaHTML.replaceAll("\\s+([a-zA-Z][a-zA-Z0-9_-]*)\\s*=\\s*\"[^\"]*\"", "");
+        String etiquetaSinAtributos = etiquetaHtml.replaceAll("\\s+([a-zA-Z][a-zA-Z0-9_-]*)\\s*=\\s*\"[^\"]*\"", "");
         etiquetaSinAtributos = etiquetaSinAtributos.replaceAll("\\s+", "");
         return etiquetaSinAtributos;
     }

@@ -11,12 +11,28 @@ import javaclase.con.kevinolarte.ejr.tema07_2.RecoletorTexto;
 
 public class App {
     public static void main(String[] args) {
+        /* 
         String txt = "<html lang=\"en\"> <head> <title>Document</title> </head> <body> <h1 aria-busy=\"false\">asda</h1> </body> </html>";
         
         RecoletorTexto ejr02 = new RecoletorTexto();
         AnalizadorWeb ejr03 = new AnalizadorWeb(new Pila(5), ejr02.getTexto());
         System.out.println(ejr03.analizar());
-        
+        */
+        double nums[] = new double[5];
+        double nums2[] = new double[5];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = i;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            nums2[i] = nums[i];
+        }
+        nums2[0] = 100;
+
+        for (int i = 0; i < nums2.length; i++) {
+            System.out.println(nums[i]);
+            System.out.println(nums2[i]);
+            System.out.println("-------------");
+        }
       
     }
 }
