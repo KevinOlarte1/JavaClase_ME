@@ -35,33 +35,36 @@ public class AnalizadorWeb {
                     }     
                 }
                 //System.out.println(i);
-                String comparar = eliminarAtributos(stb.toString());
+                String comparar = eliminarAtributos(stb.toString()).toLowerCase();
                 stb.setLength(0);
-                //System.out.println(comparar);
+                    //System.out.println(comparar);
                 //Input.scanner.nextLine();
-
-                if (comparar.length() <=2) 
+                if (comparar.length() <= 2) {
+                        //System.out.println("Pequeño");
                     return false;
-                else if(comparar.charAt(comparar.length() - 2) == '/')
-                    stb.setLength(0);
-                else if (comparar.charAt(1) != '/'){
-                    //System.out.println("push");
-                    pila.push(comparar);
                 }
-                else if (comparar.charAt(1) == '/'){
+                else if (comparar.charAt(1) == '/') {
                     String aux = pila.pop();
-                    
-                    if (aux == null) 
-                        return false;
-                    aux = aux.substring(1, aux.length()-1);
-                    comparar = comparar.substring(2, comparar.length()-1);
-                    //System.out.println("Aux:" + aux);
-                    //System.out.println("Comparar:" + comparar);
-                    if (!aux.equals(comparar)) {
+                    if(aux == null) {
+                        //System.out.println("nulo");
                         return false;
                     }
+                        
+                    comparar = comparar.substring(2, comparar.length() -1);
+                    if (!comparar.equals(aux))
+                    {
+                            //System.out.println("Valor de la pila: " + aux + " Valor encotrado: " + comparar);
+                        return false;
+                    }
+                        
                 }
-                    
+                else if (comparar.charAt(comparar.length() -2) != '/'){
+                    comparar = comparar.substring(1, comparar.length() -1).toLowerCase();
+                        // System.out.println("Push: " + comparar);
+                    pila.push(comparar);
+                }
+                
+
                 
             }
 
@@ -72,7 +75,7 @@ public class AnalizadorWeb {
        
         //Buscamos los atributos
         String etiquetaSinAtributos = etiquetaHTML.replaceAll("\\s+([a-zA-Z][a-zA-Z0-9_-]*)\\s*=\\s*\"[^\"]*\"", "");
-
+        etiquetaSinAtributos = etiquetaSinAtributos.replaceAll("\\s+", "");
         return etiquetaSinAtributos;
     }
 }

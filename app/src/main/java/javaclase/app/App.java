@@ -13,10 +13,10 @@ public class App {
     public static void main(String[] args) {
         String txt = "<html lang=\"en\"> <head> <title>Document</title> </head> <body> <h1 aria-busy=\"false\">asda</h1> </body> </html>";
         
-        //RecoletorTexto ejr02 = new RecoletorTexto();
-        AnalizadorWeb ejr03 = new AnalizadorWeb(new Pila(5), txt);
+        RecoletorTexto ejr02 = new RecoletorTexto();
+        AnalizadorWeb ejr03 = new AnalizadorWeb(new Pila(5), ejr02.getTexto());
         System.out.println(ejr03.analizar());
-
+        
       
     }
 }
