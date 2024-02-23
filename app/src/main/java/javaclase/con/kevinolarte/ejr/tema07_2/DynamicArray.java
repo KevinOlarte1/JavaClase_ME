@@ -1,5 +1,7 @@
 package javaclase.con.kevinolarte.ejr.tema07_2;
 
+import java.util.Arrays;
+
 public class DynamicArray {
     private double valores[];
     private int puntero = 0;
@@ -13,10 +15,11 @@ public class DynamicArray {
      * Metodo para añadir un valor a nuestro array dymaico en la utlima posicion
      * @param value valor añadido
      */
-    public void add(double value){
+    public boolean add(double value){
         if(puntero == valores.length)
             incrementar();
         valores[puntero++] = value;
+        return true;
     }
     /**
      * Metodo para añadir un valor a nuestro array dynamico en indice ingresado
@@ -25,13 +28,15 @@ public class DynamicArray {
      * @return booleano que devuelve si se ha podido realizar
      */
     public boolean add(int index, double value){
-        if (puntero == valores.length)
-            incrementar();
         if (index < 0 || index > puntero)
             return false;
+
+        if (puntero == valores.length)
+            incrementar();
+        
         
         for (int i = puntero; i >= index; i--) {
-            valores[i + 1] = valores[i];
+            valores[i] = valores[i -1];
         }
         valores[index] = value;
         puntero++;
@@ -42,14 +47,15 @@ public class DynamicArray {
      * @param index indice donde borraremos un valor
      * @return booleano que devuelve si se ha podido realizar
      */
-    public boolean remove(int index){
+    public double remove(int index){
         if (index < 0 || index > puntero )
-            return false;
-        for (int i = index; i < valores.length; i++) {
+            return Double.POSITIVE_INFINITY;
+        double valor = valores[index];
+        for (int i = index; i < puntero - 1; i++) {
             valores[i] = valores[i +1];
         }
         puntero--;
-        return true;
+        return valor;
     }
 
     /**
@@ -57,10 +63,10 @@ public class DynamicArray {
      * @param value valor que se eliminara, la primera ocurrencia.
      * @return booleano que devuelve si se ha podido realizar
      */
-    public boolean remove(double value){
+    public double remove(double value){
         int index;
-        boolean encontrado = false;
-        for (int i = 0; i < valores.length; i++) {
+        double encontrado = Double.POSITIVE_INFINITY;
+        for (int i = 0; i <= puntero; i++) {
             if (valores[i] == value) {
                 encontrado = remove(i);
                 break;
@@ -71,7 +77,7 @@ public class DynamicArray {
 
     private void incrementar(){
         double valoresNuevos[] = new double[(int)(10 * 1.5)];
-        for (int i = 0; i < valores.length; i++) {
+        for (int i = 0; i <= puntero; i++) {
             valoresNuevos[i]=  valores[i];
         }
         valores = valoresNuevos;
@@ -84,7 +90,7 @@ public class DynamicArray {
      */
     public double get(int index){
         if (index < 0 | index > puntero) 
-            return Double.MIN_VALUE;
+            return Double.POSITIVE_INFINITY;
         return valores[index];
     }
 
@@ -100,5 +106,34 @@ public class DynamicArray {
         valores[index] = value;
         return true;
     }
+
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + Arrays.hashCode(valores);
+        result = prime * result + puntero;
+        return result;
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        DynamicArray other = (DynamicArray) obj;
+        if (!Arrays.equals(valores, other.valores))
+            return false;
+        if (puntero != other.puntero)
+            return false;
+        return true;
+    }
+
+    
     
 }
