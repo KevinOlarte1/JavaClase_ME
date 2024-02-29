@@ -35,7 +35,8 @@ public class Calculadora implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setBounds(x, y, width, height);
         frame.setLayout(null);
-        
+        frame.setResizable(false);
+
         texto = new JTextField("asd");
         texto.setBounds(25, 20, width - 50, 50);
         texto.setEditable(false);

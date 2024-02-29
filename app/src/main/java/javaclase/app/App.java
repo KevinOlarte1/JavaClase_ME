@@ -14,14 +14,15 @@ import javaclase.con.kevinolarte.ejr.tema07_2.DynamicArray;
 import javaclase.con.kevinolarte.ejr.tema07_2.GenericDynamicArray;
 import javaclase.con.kevinolarte.ejr.tema07_2.RecoletorTexto;
 import javaclase.con.kevinolarte.ejr.tema07_2.Hospital2.Ejercico7;
+import javaclase.con.kevinolarte.lib.Input;
 
 
 
 
 public class App {
     public static void main(String[] args) {
-         
-        GenericDynamicArray<Paciente> paciente = new GenericDynamicArray<>();
+         Input.scanner.nextLine();
+        //GenericDynamicArray<Paciente> paciente = new GenericDynamicArray<>();
 
         
     }
