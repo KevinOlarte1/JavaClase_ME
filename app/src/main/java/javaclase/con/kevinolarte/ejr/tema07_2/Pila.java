@@ -1,15 +1,15 @@
 package javaclase.con.kevinolarte.ejr.tema07_2;
 
-public class Pila {
-    private String[] pila;
+public class Pila<T> {
+    private Object[] pila;
     private int tope;
 
     public Pila(int capacidad) {
-        this.pila = new String[capacidad];
+        this.pila = new Object[capacidad];
         tope = -1;
     }
     // Metodo para agregar un elemento a la pila
-    public void push(String dato) {
+    public void push(T dato) {
         if (tope == pila.length - 1) {
             aumentar();
         }
@@ -18,11 +18,12 @@ public class Pila {
     }
 
     // Metodo para sacar un elemento de la pila
-    public String pop() {
+    @SuppressWarnings("unchecked")
+    public T pop() {
        if (tope == -1) {
             return null;
         } 
-        return pila[tope--];
+        return (T) pila[tope--];
         
     }
     // Metodo para obtener el tamaño de la pila
@@ -38,7 +39,7 @@ public class Pila {
 
     //Metodo privado para aumentar el tamaño de la pila cuando ya este en su capacidad maxima.
     private void aumentar(){
-        String[] nuevaPila = new String[pila.length * 2];
+        Object[] nuevaPila = new Object[pila.length * 2];
         for (int i = 0; i < pila.length; i++) {
             nuevaPila[i] = pila[i];
         }

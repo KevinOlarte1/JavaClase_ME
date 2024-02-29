@@ -1,7 +1,7 @@
 package javaclase.con.kevinolarte.ejr.tema07_2;
 
 public class AnalizadorTexto {
-    private final Pila pila;
+    private final Pila<String> pila;
     private final String texto;
     public AnalizadorTexto(Pila pila, String texto) {
         this.pila = pila;

@@ -1,7 +1,5 @@
 package javaclase.con.kevinolarte.ejr.tema07_2;
-import java.util.Stack;
 
-import net.datafaker.providers.entertainment.Tron.Character;
 import javaclase.con.kevinolarte.lib.Comprobate;
 
 public class CalculadoraPolacaInversa {

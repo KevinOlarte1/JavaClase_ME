@@ -1,7 +1,7 @@
 package javaclase.con.kevinolarte.ejr.tema07_2;
 
 public class AnalizadorWeb {
-    private final Pila pila;
+    private final Pila<String> pila;
     private final String texto;
 
     public AnalizadorWeb(Pila pila, String texto){

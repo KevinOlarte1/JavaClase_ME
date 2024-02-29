@@ -1,24 +1,24 @@
-package javaclase.con.kevinolarte.ejr.tema07_2;
+package javaclase.con.kevinolarte.ejr.tema07_2.Hospital2.lib;
 
 import java.util.Arrays;
 
-public class ColaCirucular {
+public class ColaPacientes {
     private static final int MAX_VALUE_DEFAULT = 5;
-    private final int cola[];
+    private final String cola[];
     private int head;
     private int tail;
     private int cont;
     private int max;
 
-    public ColaCirucular(int max){
-        this.cola = new int[max];
+    public ColaPacientes(int max){
+        this.cola = new String[max];
         this.head = 0;
         this.tail = 0;
         this.cont = 0;
         this.max = max;
     }
     
-    public ColaCirucular(){
+    public ColaPacientes(){
         this(MAX_VALUE_DEFAULT);
     }
 
@@ -27,7 +27,7 @@ public class ColaCirucular {
      * @param num valor añadido
      * @return
      */
-    public boolean add(int num){
+    public boolean add(String num){
         if (isFull())
             return false;
         cola[head] = num;
@@ -44,12 +44,12 @@ public class ColaCirucular {
      * Sacar el ultimo de la cola
      * @return el ultimo valor.
      */
-    public int remove(){
+    public String remove(){
         if(isEmpty())
-            return Integer.MIN_VALUE;
+            return null;
         
-        int num = cola[tail]; 
-        cola[tail] = 0;
+        String num = cola[tail]; 
+        cola[tail] = null;
         cont--;
         if(tail == max - 1)
             tail = 0;
@@ -58,6 +58,7 @@ public class ColaCirucular {
         return num;
     }
 
+    
 
     public boolean isFull(){
         return cont == max;

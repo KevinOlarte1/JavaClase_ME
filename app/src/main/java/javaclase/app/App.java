@@ -6,10 +6,14 @@ package javaclase.app;
 import javaclase.con.kevinolarte.ejr.tema07_2.Pila;
 import javaclase.con.kevinolarte.ejr.tema07_2.CalculadoraPolacaInversa;
 import javaclase.con.kevinolarte.ejr.tema07_2.ColaCirucular;
+import javaclase.con.kevinolarte.ejr.tema07.ejr07.CentroSalud;
+import javaclase.con.kevinolarte.ejr.tema07.ejr07.Paciente;
 import javaclase.con.kevinolarte.ejr.tema07_2.AnalizadorTexto;
 import javaclase.con.kevinolarte.ejr.tema07_2.AnalizadorWeb;
 import javaclase.con.kevinolarte.ejr.tema07_2.DynamicArray;
+import javaclase.con.kevinolarte.ejr.tema07_2.GenericDynamicArray;
 import javaclase.con.kevinolarte.ejr.tema07_2.RecoletorTexto;
+import javaclase.con.kevinolarte.ejr.tema07_2.Hospital2.Ejercico7;
 
 
 
@@ -17,32 +21,7 @@ import javaclase.con.kevinolarte.ejr.tema07_2.RecoletorTexto;
 public class App {
     public static void main(String[] args) {
          
-        String txt = "5 5 + 6 *";
-        
-        //RecoletorTexto ejr02 = new RecoletorTexto();
-        //AnalizadorWeb ejr03 = new AnalizadorWeb(new Pila(5), ejr02.getTexto());
-        ColaCirucular a = new ColaCirucular();
-        a.add(1);
-        System.out.println(a);
-        a.add(2);
-        System.out.println(a);
-        a.add(3);
-        System.out.println(a);
-        a.add(4);
-        System.out.println(a);
-        a.add(5);
-        System.out.println(a);
-        a.remove();
-        System.out.println(a);
-        a.add(6);
-        System.out.println(a);
-        a.remove();
-        System.out.println(a);
-        a.add(7);
-        System.out.println(a);
-        //CalculadoraPolacaInversa a = new CalculadoraPolacaInversa();
-        //System.out.println(a.calcular(ejr02.getTexto()));
-        //System.out.println(ejr03.analizar());
+        GenericDynamicArray<Paciente> paciente = new GenericDynamicArray<>();
 
         
     }

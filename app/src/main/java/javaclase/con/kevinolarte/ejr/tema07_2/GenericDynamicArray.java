@@ -2,11 +2,11 @@ package javaclase.con.kevinolarte.ejr.tema07_2;
 
 import java.util.Arrays;
 
-public class DynamicArray {
-    private String valores[];
+public class GenericDynamicArray<T> {
+    private Object valores[];
     private int puntero = 0;
-    public DynamicArray(){
-        this.valores = new String[10];
+    public GenericDynamicArray(){
+        this.valores = new Object[10];
         this.puntero = 0;
     }
 
@@ -15,7 +15,7 @@ public class DynamicArray {
      * Metodo para añadir un valor a nuestro array dymaico en la utlima posicion
      * @param value valor añadido
      */
-    public boolean add(String value){
+    public boolean add(T value){
         if(puntero == valores.length)
             incrementar();
         valores[puntero++] = value;
@@ -27,7 +27,7 @@ public class DynamicArray {
      * @param value valor añadido
      * @return booleano que devuelve si se ha podido realizar
      */
-    public boolean add(int index, String value){
+    public boolean add(int index, T value){
         if (index < 0 || index > puntero)
             return false;
 
@@ -47,10 +47,11 @@ public class DynamicArray {
      * @param index indice donde borraremos un valor
      * @return booleano que devuelve si se ha podido realizar
      */
-    public String remove(int index){
+    @SuppressWarnings("unchecked")
+    public T remove(int index){
         if (index < 0 || index > puntero )
             return null;
-        String valor = valores[index];
+        T valor = (T) valores[index];
         for (int i = index; i < puntero - 1; i++) {
             valores[i] = valores[i +1];
         }
@@ -63,9 +64,9 @@ public class DynamicArray {
      * @param value valor que se eliminara, la primera ocurrencia.
      * @return booleano que devuelve si se ha podido realizar
      */
-    public String remove(String value){
+    public T remove(T value){
         int index;
-        String encontrado = null;
+        T encontrado = null;
         for (int i = 0; i <= puntero; i++) {
             if (valores[i] == value) {
                 encontrado = remove(i);
@@ -76,7 +77,7 @@ public class DynamicArray {
     }
 
     private void incrementar(){
-        String valoresNuevos[] = new String[(int)(10 * 1.5)];
+        Object valoresNuevos[] = new Object[(int)(10 * 1.5)];
         for (int i = 0; i <= puntero; i++) {
             valoresNuevos[i]=  valores[i];
         }
@@ -88,10 +89,11 @@ public class DynamicArray {
      * @param index indice donde obtendremos el valor
      * @return valor del indice correspondiente
      */
-    public String get(int index){
+    @SuppressWarnings("unchecked")
+    public T get(int index){
         if (index < 0 | index > puntero) 
             return null;
-        return valores[index];
+        return (T) valores[index];
     }
 
     
@@ -102,7 +104,7 @@ public class DynamicArray {
      * @param value valor que se intercambiara
      * @return booleano que devuelve si se ha podido realizar.
      */
-    public boolean set(int index, String value){
+    public boolean set(int index, T value){
         if (index < 0 | index > puntero) 
             return false;
         valores[index] = value;
@@ -114,7 +116,7 @@ public class DynamicArray {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + Arrays.hashCode(valores);
+        result = prime * result + Arrays.deepHashCode(valores);
         result = prime * result + puntero;
         return result;
     }
@@ -128,13 +130,16 @@ public class DynamicArray {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        DynamicArray other = (DynamicArray) obj;
-        if (!Arrays.equals(valores, other.valores))
+        GenericDynamicArray other = (GenericDynamicArray) obj;
+        if (!Arrays.deepEquals(valores, other.valores))
             return false;
         if (puntero != other.puntero)
             return false;
         return true;
     }
+
+
+    
 
     
     
