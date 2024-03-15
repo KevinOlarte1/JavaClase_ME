@@ -68,6 +68,7 @@ public class CalculadoraUI {
                     case DIGITO:
                         buttons[cont].addActionListener(calculadoraController.getActionDigito());
                         break;
+                    default:
 
                 }
                 panelBotones.add(buttons[cont]);

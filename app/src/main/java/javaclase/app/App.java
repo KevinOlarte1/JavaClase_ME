@@ -3,28 +3,13 @@
  */
 package javaclase.app;
 
-import javaclase.con.kevinolarte.ejr.tema07_2.Pila;
-import javaclase.con.kevinolarte.ejr.tema07_2.CalculadoraPolacaInversa;
-import javaclase.con.kevinolarte.ejr.tema07_2.ColaCirucular;
-import javaclase.con.kevinolarte.ejr.tema07.ejr07.CentroSalud;
-import javaclase.con.kevinolarte.ejr.tema07.ejr07.Paciente;
-import javaclase.con.kevinolarte.ejr.tema07_2.AnalizadorTexto;
-import javaclase.con.kevinolarte.ejr.tema07_2.AnalizadorWeb;
-import javaclase.con.kevinolarte.ejr.tema07_2.DynamicArray;
-import javaclase.con.kevinolarte.ejr.tema07_2.GenericDynamicArray;
-import javaclase.con.kevinolarte.ejr.tema07_2.RecoletorTexto;
-import javaclase.con.kevinolarte.ejr.tema07_2.Hospital2.Ejercico7;
-import javaclase.con.kevinolarte.lib.Input;
+import java.time.LocalDate;
 
-
-
+import javaclase.con.kevinolarte.ejr.tema08.actividades.actividad04.Actv04;
 
 public class App {
     public static void main(String[] args) {
-         Input.scanner.nextLine();
-        //GenericDynamicArray<Paciente> paciente = new GenericDynamicArray<>();
-
-        
+        Actv04 a = new Actv04();
     }
 
 }

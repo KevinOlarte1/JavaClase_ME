@@ -38,7 +38,7 @@ public class CalculadoraController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JButton boton = getBoton(e);
-                // calculadora.addOperador(boton.getText());
+                calculadora.addOperador(boton.getText());
             }
         };
     }
