@@ -1,4 +1,4 @@
-package javaclase.con.kevinolarte.ejr.tema08.actividades.Actividad05;
+package javaclase.con.kevinolarte.ejr.tema08.actividades.actividad05;
 
 import java.awt.*;
 import javax.swing.*;
@@ -77,6 +77,6 @@ public class UI {
     private boolean promptNewGame() {
         int response = JOptionPane.showConfirmDialog(frame, "¿Te gustaría volver a jugar?", "Nuevo juego",
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        return response == JOptionPane.YES_OPTION;
+        return response == JOptionPane.YES_OPTION;  
     }
 }

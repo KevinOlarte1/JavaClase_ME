@@ -5,12 +5,13 @@ package javaclase.app;
 
 import java.time.LocalDate;
 
-import javaclase.con.kevinolarte.ejr.tema08.actividades.Actividad05.Ejercicio05;
 import javaclase.con.kevinolarte.ejr.tema08.actividades.actividad04.Actv04;
+import javaclase.con.kevinolarte.ejr.tema08.actividades.actividad05.Ejercicio05;
+import javaclase.con.kevinolarte.ejr.tema08.actividades.actividad06.Vista;
 
 public class App {
     public static void main(String[] args) {
-        Ejercicio05 a = new Ejercicio05();
+        Vista a = new Vista();
     }
 
 }

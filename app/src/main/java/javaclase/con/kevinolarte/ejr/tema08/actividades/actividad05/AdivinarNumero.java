@@ -1,4 +1,4 @@
-package javaclase.con.kevinolarte.ejr.tema08.actividades.Actividad05;
+package javaclase.con.kevinolarte.ejr.tema08.actividades.actividad05;
 
 import java.util.Random;
 import javax.swing.*;
