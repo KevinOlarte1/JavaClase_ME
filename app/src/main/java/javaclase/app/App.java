@@ -5,13 +5,16 @@ package javaclase.app;
 
 import java.time.LocalDate;
 
-import javaclase.con.kevinolarte.ejr.tema08.actividades.actividad04.Actv04;
-import javaclase.con.kevinolarte.ejr.tema08.actividades.actividad05.Ejercicio05;
+import javax.swing.SwingUtilities;
+
 import javaclase.con.kevinolarte.ejr.tema08.actividades.actividad06.Vista;
+import javaclase.con.kevinolarte.ejr.tema08.actividades.actividad07.VistaJuego;
+import javaclase.con.kevinolarte.lib.Comprobate;
 
 public class App {
     public static void main(String[] args) {
-        Vista a = new Vista();
+        // Crear y mostrar la ventana de la calculadora
+        VistaJuego a = new VistaJuego();
     }
 
 }

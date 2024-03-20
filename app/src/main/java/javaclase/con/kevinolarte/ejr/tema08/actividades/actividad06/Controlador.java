@@ -14,7 +14,7 @@ public class Controlador implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         modelo.resolver(vista.getAltura(), vista.getPeso());
-        System.out.println(modelo.getImc() + " " + modelo.getClasificacion());
+        vista.getResultado().setText("IMC: " + modelo.getImc() + " (" + modelo.getClasificacion().toString() + ")");
         
     }
     

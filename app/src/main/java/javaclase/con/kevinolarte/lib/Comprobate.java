@@ -49,7 +49,7 @@ public class Comprobate {
      * @return devuelve un booleano, comprobando si cumple la codición
      */
     public static boolean comprobarNumerRealPositivo(String palabra){
-        boolean verdad = palabra.matches("\\d*.\\d+");
+        boolean verdad = palabra.matches("\\d*.?\\d+");
         return verdad;
     }
 

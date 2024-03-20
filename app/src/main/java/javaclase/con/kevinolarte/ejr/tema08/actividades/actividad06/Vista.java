@@ -1,55 +1,81 @@
 package javaclase.con.kevinolarte.ejr.tema08.actividades.actividad06;
-
 import javax.swing.*;
-import java.awt.*;
 import javaclase.con.kevinolarte.lib.Comprobate;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Vista {
-    private final JFrame frame;
-    private final JPanel panel;
-    private final JTextField altura;
-    private final JTextField peso;
-    private final JButton button;
-    private float imc;
-    private String resultado;
+public class Vista extends JFrame {
+    private JLabel alturaEtiqueta;
+    private JTextField altura;
+
+    private JLabel pesoEtiqueta;
+    private JTextField peso;
+
+    private JLabel resultado;
+    private JButton calcular;
+    private JPanel panel;
+    
+    private GridBagConstraints constraints;
+    private Controlador controlador;
+
     private float pesoF;
-    protected float alturaF;
+    private float alturaF;
 
     public Vista() {
-      
-        frame = new JFrame("Suma de dos numeros");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1024, 768);
-        frame.setLayout(new BorderLayout());
+        controlador = new Controlador(this);
+        setTitle("Calculadora de IMC");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 2));
+        panel = new JPanel(new GridBagLayout());
+        constraints = new GridBagConstraints();
+        constraints.insets = new Insets(20, 20, 20, 20); 
 
-        altura = new JTextField();
-        peso = new JTextField();
+        alturaEtiqueta = new JLabel("Altura (m):");
+        altura = new JTextField(10);
+        pesoEtiqueta = new JLabel("Peso (kg):");
+        peso = new JTextField(10);
+        calcular = new JButton("Calcuar");
+        calcular.addActionListener(controlador);
+        resultado = new JLabel("");
 
-        Controlador controlador = new Controlador(this);
-        button = new JButton("Calcular");
-        button.addActionListener(controlador);
-      //  button.addActionListener();
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.fill = GridBagConstraints.NONE; // Establecer fill en NONE para que los componentes no cambien de tamaño
+        panel.add(alturaEtiqueta, constraints);
 
-        panel.add(new JLabel("Altura"));
-        panel.add(altura);
-        panel.add(new JLabel("Peso:"));
-        panel.add(peso);
-        panel.add(new JLabel("IMC"));
-        panel.add(button);
+        constraints.gridx = 1;
+        panel.add(altura, constraints);
 
-        frame.add(panel, BorderLayout.CENTER);
-        frame.setVisible(true);
-        
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        panel.add(pesoEtiqueta, constraints);
+
+        constraints.gridx = 1;
+        panel.add(peso, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.gridwidth = 2;
+        constraints.anchor = GridBagConstraints.CENTER;
+        panel.add(calcular, constraints);
+
+        constraints.gridy = 3;
+        panel.add(resultado, constraints);
+
+        add(panel);
+
+        pack();
+        setLocationRelativeTo(null); // Centra la ventana en la pantalla
+        setResizable(false);
+        setVisible(true);
     }
 
     public float getAltura() {
         if (!Comprobate.comprobarNumerRealPositivo(altura.getText())) {
             return 0.0f;
         }
-        alturaF = Float.parseFloat(resultado);
+        alturaF = Float.parseFloat(altura.getText());
         return alturaF;
     }
 
@@ -59,5 +85,9 @@ public class Vista {
         }
         pesoF = Float.parseFloat(peso.getText());
         return pesoF;
+    }
+
+    public JLabel getResultado() {
+        return resultado;
     }
 }
