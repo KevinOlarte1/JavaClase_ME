@@ -9,12 +9,15 @@ import javax.swing.SwingUtilities;
 
 import javaclase.con.kevinolarte.ejr.tema08.actividades.actividad06.Vista;
 import javaclase.con.kevinolarte.ejr.tema08.actividades.actividad07.VistaJuego;
+import javaclase.con.kevinolarte.ejr.tema08.actividades.actividad08.Cryptographia;
 import javaclase.con.kevinolarte.lib.Comprobate;
 
 public class App {
     public static void main(String[] args) {
         // Crear y mostrar la ventana de la calculadora
-        VistaJuego a = new VistaJuego();
+        int a = 0;
+        System.out.println((char) 0);
+        
     }
 
 }
