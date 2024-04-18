@@ -27,10 +27,12 @@ public class LibArray {
      * @param min valor minimo del ingreso en el array
      * @param max valor maximo del ingreso en el array
      */
-    public static void randomEnteros(int [] array, int min, int max){
-        for (int i = 0; i < array.length; i++) {
-            array[i] = LibRandom.rnd.nextInt(min, max);
+    public static int[] randomEnteros(int lenghtArray, int min, int max){
+        int[] nums = new int[lenghtArray];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = LibRandom.rnd.nextInt(min,max);
         }
+        return nums;
     }
 
     /**

@@ -3,12 +3,14 @@
  */
 package com;
 
+import com.kevinolarte.ejr.trimestre3.t10.ejerSuelto.Ejer01;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Ejer01 a = new Ejer01();
     }
 }
