@@ -23,6 +23,13 @@ dependencies {
 
     // This dependency is used by the application.
     implementation libs.guava
+
+    //Data Fker
+    implementation 'net.datafaker:datafaker:2.1.0'
+}
+
+run {
+    standardInput = System.in
 }
 
 // Apply a specific Java toolchain to ease working on different environments.
