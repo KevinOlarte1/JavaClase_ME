@@ -3,6 +3,11 @@
  */
 package com;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Stack;
+
+import com.kevinolarte.ejr.trimestre3.t10.ejer02.ArrayListEstadisticas;
 import com.kevinolarte.ejr.trimestre3.t10.ejerSuelto.Ejer01;
 
 public class App {
@@ -11,6 +16,13 @@ public class App {
     }
 
     public static void main(String[] args) {
-        Ejer01 a = new Ejer01();
+       Stack<Integer> pila = new Stack<>();
+        pila.push(1);
+        pila.push(2);
+        pila.push(3);
+        pila.removeElementAt(1);
+        System.out.println(pila.pop());
+        System.out.println(pila.pop());
+
     }
 }
