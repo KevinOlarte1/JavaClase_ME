@@ -126,7 +126,33 @@ public class LibInput {
                 System.out.println("Ingrese numeros no letras");
             }
             
-        }while(valido);
+        }while(!valido);
+        
+
+        return resultado;
+    }
+
+    public static int pedirIntPositivo(String mensaje){
+        
+        mensaje = mensaje == " " ? "Ingresa un numero entero positivo" : mensaje; 
+        int resultado = 0;
+        boolean valido  = false;
+
+        do{
+            System.out.println(mensaje);
+            try {
+                resultado = Integer.parseInt(scanner.nextLine());
+                System.out.println("-------");
+                if (resultado < 0) {
+                    valido = false;
+                }
+                else
+                    valido  = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Ingrese numeros no letras");
+            }
+            
+        }while(!valido);
         
 
         return resultado;

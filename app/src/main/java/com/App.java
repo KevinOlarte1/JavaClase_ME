@@ -12,6 +12,7 @@ import java.util.Stack;
 
 import com.kevinolarte.ejr.trimestre3.t10.ejer02.ArrayListEstadisticas;
 import com.kevinolarte.ejr.trimestre3.t10.ejer05.Ejer05;
+import com.kevinolarte.ejr.trimestre3.t10.ejer06.Ejer06;
 import com.kevinolarte.ejr.trimestre3.t10.ejerSuelto.Ejer01;
 import com.kevinolarte.lib.LibConf;
 
@@ -21,9 +22,10 @@ public class App {
     }
 
     public static void main(String[] args) {
-       
+       Ejer06 a = new Ejer06();
       
-       Ejer05 a = new Ejer05();
+       
+
 
     }
 }
