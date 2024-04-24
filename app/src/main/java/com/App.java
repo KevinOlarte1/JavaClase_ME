@@ -3,12 +3,17 @@
  */
 package com;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Queue;
 import java.util.Stack;
 
 import com.kevinolarte.ejr.trimestre3.t10.ejer02.ArrayListEstadisticas;
+import com.kevinolarte.ejr.trimestre3.t10.ejer05.Ejer05;
 import com.kevinolarte.ejr.trimestre3.t10.ejerSuelto.Ejer01;
+import com.kevinolarte.lib.LibConf;
 
 public class App {
     public String getGreeting() {
@@ -16,13 +21,9 @@ public class App {
     }
 
     public static void main(String[] args) {
-       Stack<Integer> pila = new Stack<>();
-        pila.push(1);
-        pila.push(2);
-        pila.push(3);
-        pila.removeElementAt(1);
-        System.out.println(pila.pop());
-        System.out.println(pila.pop());
+       
+      
+       Ejer05 a = new Ejer05();
 
     }
 }

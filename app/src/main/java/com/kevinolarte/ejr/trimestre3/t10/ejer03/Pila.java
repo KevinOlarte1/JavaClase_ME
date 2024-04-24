@@ -23,7 +23,7 @@ public class Pila<T> implements IPila<T>{
      * @throws EmptyStackException si la pila está vacía
      */
     @Override
-    public T pop() {
+    public T pop() throws EmptyStackException {
         if(size() == 0){
             throw new EmptyStackException();
         }
@@ -39,7 +39,7 @@ public class Pila<T> implements IPila<T>{
     }
 
     @Override
-    public T top() {
+    public T top() throws EmptyStackException {
         if(size() == 0){
             throw new EmptyStackException();
         }
