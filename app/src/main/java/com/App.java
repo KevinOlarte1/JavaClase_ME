@@ -13,8 +13,12 @@ import java.util.Stack;
 import com.kevinolarte.ejr.trimestre3.t10.ejer02.ArrayListEstadisticas;
 import com.kevinolarte.ejr.trimestre3.t10.ejer05.Ejer05;
 import com.kevinolarte.ejr.trimestre3.t10.ejer06.Ejer06;
+import com.kevinolarte.ejr.trimestre3.t10.ejer07.Ejer07;
+import com.kevinolarte.ejr.trimestre3.t10.ejer08.Ejer08;
+import com.kevinolarte.ejr.trimestre3.t10.ejer09.Ejer09;
 import com.kevinolarte.ejr.trimestre3.t10.ejerSuelto.Ejer01;
 import com.kevinolarte.lib.LibConf;
+import com.kevinolarte.propuestas.HashMaps;
 
 public class App {
     public String getGreeting() {
@@ -22,7 +26,8 @@ public class App {
     }
 
     public static void main(String[] args) {
-       Ejer06 a = new Ejer06();
+        
+        Ejer09 a = new Ejer09();
       
        
 
