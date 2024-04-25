@@ -9,6 +9,7 @@ public class LibInput {
     //TODO: Implementar metodos para la entrada de datos.
     public static final Scanner scanner = new Scanner(System.in);
 
+
     /**
      * Metodo para pedir un numero HEXADECIMAL
      * @param mensaje Mensaje que mostrara por pantalla
@@ -205,6 +206,33 @@ public class LibInput {
             
         }while(valido);
         
+
+        return resultado;
+    }
+
+    /**
+     * Metodo para pedir un boolean
+     * @param mensaje mensaje que mostrara por pantalla
+     * @return devuelve un boolean
+     */
+    public static boolean pedirBoolean(String mensaje){
+        mensaje = mensaje.equals(" ") ? "Ingresa un booleano." : mensaje; 
+        boolean resultado = false;
+        boolean valido  = false;
+
+        do{
+            System.out.println(mensaje);
+            String entrada = scanner.nextLine();
+            if (entrada.equalsIgnoreCase("si") || entrada.equalsIgnoreCase("s") || entrada.equalsIgnoreCase("true") || entrada.equalsIgnoreCase("verdadero")) {
+                resultado = true;
+                valido = true;
+            } else if (entrada.equalsIgnoreCase("no") || entrada.equalsIgnoreCase("n") || entrada.equalsIgnoreCase("false") || entrada.equalsIgnoreCase("falso")) {
+                resultado = false;
+                valido = true;
+            } else {
+                System.out.println("Ingrese si o no");
+            }
+        }while(!valido);
 
         return resultado;
     }
