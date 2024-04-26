@@ -30,6 +30,7 @@ public class JuegoDiccionario {
      * para intentar adividar la palabra.
      */
     public void sacarNuevaPalabraGanadora(){
+
         this.palabraGanadora = this.diccionario.getPalabras()[LibRandom.randomInt(0, this.diccionario.getPalabras().length)];
     }
 
@@ -126,6 +127,10 @@ public class JuegoDiccionario {
         }
     }
 
+    /**
+     * Metodo para obtener el top de jugadores
+     * @return String con el top de jugadores
+     */
     public String getTopJugadores(){
         ordendarMatriz();
         StringBuilder sb = new StringBuilder();

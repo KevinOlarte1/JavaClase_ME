@@ -10,7 +10,7 @@ public class Ejer09 {
     private final IDiccionario diccionario;
     private final JuegoDiccionario juegoDiccionario;
 
-    public Ejer09(Diccionario diccionario ){
+    public Ejer09(IDiccionario diccionario ){
         this.diccionario = diccionario;
         this.juegoDiccionario = new JuegoDiccionario(diccionario);
         start();
@@ -97,6 +97,9 @@ public class Ejer09 {
     }
 
 
+    /**
+     * Metodo que muestra las mejores puntiaciones
+     */
     private void mejoresPuntiaciones(){
         //TODO
         System.out.println(juegoDiccionario.getTopJugadores());

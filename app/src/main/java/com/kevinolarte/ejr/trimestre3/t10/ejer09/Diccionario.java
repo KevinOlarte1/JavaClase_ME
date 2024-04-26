@@ -3,7 +3,6 @@ package com.kevinolarte.ejr.trimestre3.t10.ejer09;
 import java.util.HashMap;
 
 import com.kevinolarte.lib.LibAnsi;
-import com.kevinolarte.lib.LibRandom;
 
 public class Diccionario implements IDiccionario{
     private final HashMap<String, String> diccionario;
