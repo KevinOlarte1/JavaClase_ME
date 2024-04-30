@@ -12,20 +12,19 @@ public class Empleado {
     private  float salario;
     private ArrayList<Hijo> hijos;
 
-    public Empleado(String dni, String nombre, LocalDate fechaNacimiento, float salario){
+    private Empleado(String dni, String nombre, LocalDate fechaNacimiento, float salario, ArrayList<Hijo> hijos){
         this.dni = dni;
         this.nombre = nombre;
         this.fehcaNacimiento = fechaNacimiento;
         this.salario = salario;
-        this.hijos = new ArrayList<Hijo>(); 
+        this.hijos = hijos;
+    }
+    public Empleado(String dni, String nombre, LocalDate fechaNacimiento, float salario){
+        this(dni, nombre, fechaNacimiento, salario, new ArrayList<Hijo>());
     }
 
     public Empleado(Empleado empleado){
-        this.dni = empleado.dni;
-        this.nombre = empleado.nombre;
-        this.fehcaNacimiento = empleado.fehcaNacimiento;
-        this.salario = empleado.salario;
-        this.hijos = empleado.hijos; 
+        this(empleado.dni, empleado.nombre, empleado.fehcaNacimiento, empleado.salario, empleado.hijos);
     }
 
     /**
