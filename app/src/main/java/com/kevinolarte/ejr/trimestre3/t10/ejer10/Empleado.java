@@ -1,6 +1,7 @@
 package com.kevinolarte.ejr.trimestre3.t10.ejer10;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -8,7 +9,7 @@ public class Empleado {
     private final String dni;
     private final String nombre;
     private final LocalDate fehcaNacimiento;
-    private final float salario;
+    private  float salario;
     private ArrayList<Hijo> hijos;
 
     public Empleado(String dni, String nombre, LocalDate fechaNacimiento, float salario){
@@ -16,27 +17,42 @@ public class Empleado {
         this.nombre = nombre;
         this.fehcaNacimiento = fechaNacimiento;
         this.salario = salario;
-        this.hijos = null; 
+        this.hijos = new ArrayList<Hijo>(); 
     }
 
     public Empleado(Empleado empleado){
-        this(empleado.dni, empleado.nombre, empleado.fehcaNacimiento, empleado.salario);
+        this.dni = empleado.dni;
+        this.nombre = empleado.nombre;
+        this.fehcaNacimiento = empleado.fehcaNacimiento;
+        this.salario = empleado.salario;
+        this.hijos = empleado.hijos; 
     }
 
     /**
      * Metodo para añadir un hijo a al empleado
-     * @param dniPadre String del dni del padre
      * @param nombre String nombre del hijo
      * @param edad int edad del padre
      * @return
      */
-    public boolean addHijo(String dniPadre, String nombre, int edad){
-        if (this.hijos == null) {
-            this.hijos = new ArrayList<>();
-        }
-
-        hijos.add(new Hijo(dniPadre, nombre, edad));
+    public boolean addHijo( String nombre, int edad){
+        
+        hijos.add(new Hijo(nombre, edad));
         return true;
+    }
+
+    /**
+     * Metodo para eliminar un hijo del empleado
+     * @param nombre String nombre del hijo
+     * @return boolean notificando si se ha podido eliminar el hijo
+     */
+    public boolean removeHijo(String nombre){
+        for (Hijo hijo : hijos) {
+            if (hijo.getNombre().equals(nombre)) {
+                hijos.remove(hijo);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -67,7 +83,7 @@ public class Empleado {
     @Override
     public String toString() {
         return "Empleado [dni=" + dni + ", nombre=" + nombre + ", fehcaNacimiento=" + fehcaNacimiento + ", salario="
-                + salario + ", hijos=" + Arrays.toString(hijos) + "]";
+                + salario + ", hijos=" + hijos.toString() + "( " + hijos.size() + "]";
     }
 
     public String getDni() {
@@ -86,9 +102,27 @@ public class Empleado {
         return salario;
     }
 
-    public Hijo[] getHijos() {
-        return hijos;
+    public int getEdad() {
+        
+        return  Period.between(fehcaNacimiento, LocalDate.now()).getYears();
     }
+
+    public Hijo[] getHijos() {
+        Hijo[] array = new Hijo[hijos.size()];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = new Hijo(hijos.get(i));
+        }
+        return array;
+    }
+
+    public void setSalario(float salario) {
+        this.salario = salario;
+    }
+
+    
+
+    
+    
 
 
     

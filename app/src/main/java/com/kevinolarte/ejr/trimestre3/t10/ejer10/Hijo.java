@@ -5,19 +5,22 @@ import org.checkerframework.common.returnsreceiver.qual.This;
 public class Hijo {
     private static int COUNT_ID = 0;
     private final String id;
-    private final String dniPadre;
+
     private final String nombre;
     private final int edad;
 
-    private Hijo(String id, String dniPadre, String nombre, int edad){
+    private Hijo(String id, String nombre, int edad){
         this.id = id;
-        this.dniPadre = dniPadre;
         this.nombre = nombre;
         this.edad = edad;
     }
 
-    public Hijo(String dniPadre,String nombre, int edad){
-        this(String.valueOf(++COUNT_ID), dniPadre, nombre, edad);
+    public Hijo(String nombre, int edad){
+        this(String.valueOf(++COUNT_ID), nombre, edad);
+    }
+
+    public Hijo(Hijo hijo){
+        this(hijo.id, hijo.nombre, hijo.edad);
     }
 
     
@@ -50,6 +53,14 @@ public class Hijo {
     @Override
     public String toString() {
         return "Hijo [nombre=" + nombre + ", edad=" + edad + "]";
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getEdad() {
+        return edad;
     }
 
     
