@@ -6,6 +6,7 @@ package com;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Queue;
 import java.util.Stack;
@@ -16,6 +17,7 @@ import com.kevinolarte.ejr.trimestre3.t10.ejer06.Ejer06;
 import com.kevinolarte.ejr.trimestre3.t10.ejer07.Ejer07;
 import com.kevinolarte.ejr.trimestre3.t10.ejer08.Ejer08;
 import com.kevinolarte.ejr.trimestre3.t10.ejer09.Ejer09;
+import com.kevinolarte.ejr.trimestre3.t10.ejer10.Ejer10;
 import com.kevinolarte.ejr.trimestre3.t10.ejer10.Empleado;
 import com.kevinolarte.ejr.trimestre3.t10.ejerSuelto.Ejer01;
 import com.kevinolarte.lib.LibConf;
@@ -27,13 +29,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-        
-       ArrayList<Empleado> asad = new ArrayList<>(12);
-       //asad.add(new Empleado(new Empleado("19191", "KEVIN", LocalDate.parse("2002-01-10"), 2000f)));
-
-       for (Empleado empleado : asad) {
-        System.out.println(empleado.toString());
-       }
+       Ejer10 a = new Ejer10();
        
       
        

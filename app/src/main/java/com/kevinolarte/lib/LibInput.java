@@ -204,7 +204,7 @@ public class LibInput {
                 System.out.println("Ingrese numeros no letras");
             }
             
-        }while(valido);
+        }while(!valido);
         
 
         return resultado;
