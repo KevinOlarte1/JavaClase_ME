@@ -62,6 +62,7 @@ public class Centro {
             return "No hay profesores";
         }
         StringBuilder sb = new StringBuilder();
+        sb.append(this.nombre).append("\n\n");
         for (Profesor profesor : profesores) {
             sb.append("Profesor: ").append(profesor.getNombre()).append(" (" + profesor.getDni()).append(")\n");
             for (Alumno alumno : alumnos){
@@ -108,10 +109,22 @@ public class Centro {
     public Profesor getProfesor(String dni){
         for (Profesor profesor : profesores) {
             if (profesor.getDni().equals(dni)){
-                return profesor;
+                return new Profesor(profesor);
             }
         }
         return null;
+    }
+
+    /**
+     * Obtener una lista de profesores
+     * @return Lista de profesores
+     */
+    public List<Profesor> getProfesores() {
+        List<Profesor> profesores = new ArrayList<>();
+        for (Profesor profesor : this.profesores) {
+            profesores.add(new Profesor(profesor));
+        }
+        return profesores;
     }
 
     /**
@@ -122,37 +135,99 @@ public class Centro {
     public Aula getAula(String codigo){
         for (Aula aula : aulas) {
             if (aula.getCodigo().equals(codigo)){
-                return aula;
+                return new Aula(aula);
             }
         }
         return null;
     }
 
+    /**
+     * Obtener una lista de aulas
+     * @return Lista de aulas
+     */
+    public List<Aula> getAulas() {
+        List<Aula> aulas = new ArrayList<>();
+        for (Aula aula : this.aulas) {
+            aulas.add(new Aula(aula));
+        }
+        return aulas;
+    }
+    /**
+     * Obtener una asignatura por su codigo
+     * @param codigo Codigo de la asignatura
+     * @return Asignatura con el codigo pasado por parametro
+     */
     public Asignatura getAsignatura(String codigo){
         for (Asignatura asignatura : asignaturas) {
             if (asignatura.getCodigo().equals(codigo)){
-                return asignatura;
+                return new Asignatura(asignatura);
             }
         }
         return null;
     }
 
+    /**
+     * Obtener una lista de asignaturas
+     * @return Lista de asignaturas
+     */
+    public List<Asignatura> getAsignaturas() {
+        List<Asignatura> asignaturas = new ArrayList<>();
+        for (Asignatura asignatura : this.asignaturas) {
+            asignaturas.add(new Asignatura(asignatura));
+        }
+        return asignaturas;
+    }
+
+    /**
+     * Obtener un grupo por su codigo
+     * @param codigo Codigo del grupo
+     * @return Grupo con el codigo pasado por parametro
+     */
     public Grupo getGrupo(String codigo){
         for (Grupo grupo : grupos) {
             if (grupo.getCodigo().equals(codigo)){
-                return grupo;
+                return new Grupo(grupo);
             }
         }
         return null;
     }
 
+    /**
+     * Obtener una lista de grupos
+     * @return Lista de grupos
+     */
+    public List<Grupo> getGrupos() {
+        List<Grupo> grupos = new ArrayList<>();
+        for (Grupo grupo : this.grupos) {
+            grupos.add(new Grupo(grupo));
+        }
+        return grupos;
+    }
+
+    /**
+     * Obtener un alumno por su id
+     * @param id Id del alumno
+     * @return Alumno con el id pasado por parametro
+     */
     public Alumno getAlumno(String id){
         for (Alumno alumno : alumnos) {
             if (alumno.getId().equals(id)){
-                return alumno;
+                return new Alumno(alumno);
             }
         }
         return null;
+    }
+
+    /**
+     * Obtener una lista de alumnos
+     * @return Lista de alumnos
+     */
+    public List<Alumno> getAlumnos() {
+        List<Alumno> alumnos = new ArrayList<>();
+        for (Alumno alumno : this.alumnos) {
+            alumnos.add(new Alumno(alumno));
+        }
+        return alumnos;
     }
 
     /**
@@ -160,11 +235,18 @@ public class Centro {
      * @param nombre Nombre del alumno
      * @param codigoGrupo Codigo del grupo del alumno
      * @param codigoAsignaturas Codigo de las asignaturas del alumno
-     * @return True si se ha añadido correctamente, false en caso contrario
+     * @return PARAMETROS_NO_VALIDO si los parametros no son correctos,
+     * GRUPO_NO_EXISTENTE si no existe un grupo con ese codigo,
+     * ASIGNATURA_NO_EXISTENTE si no existe una asignatura con ese codigo,
+     * CORRECTO si se ha añadido correctamente
      */
-    public boolean addAlumno(String nombre,String codigoGrupo, String[] codigoAsignaturas){
-        if (nombre.isEmpty() || codigoGrupo.isEmpty() || codigoAsignaturas.length == 0 || getGrupo(codigoGrupo) == null || codigoAsignaturas == null){
-            return false;
+    public Salida addAlumno(String nombre,String codigoGrupo, String[] codigoAsignaturas){
+        if (nombre.isEmpty() || codigoGrupo.isEmpty() || codigoAsignaturas == null || codigoAsignaturas.length == 0){
+            return Salida.PARAMETROS_NO_VALIDO;
+            
+        }
+        if (getGrupo(codigoGrupo) == null){
+            return Salida.GRUPO_NO_EXISTENTE;
             
         }
         Grupo grupo = getGrupo(codigoGrupo);
@@ -172,12 +254,12 @@ public class Centro {
         for (String codigoAsignatura : codigoAsignaturas) {
             Asignatura asignatura = getAsignatura(codigoAsignatura);
             if (asignatura == null){
-                return false;
+                return Salida.ASIGNATURA_NO_EXISTENTE;
             }
             asignaturasAlumno.add(asignatura);
         }
         alumnos.add(new Alumno(nombre, grupo, asignaturasAlumno));
-        return false;
+        return Salida.CORRECTO;
     }
 
     /**
@@ -185,7 +267,10 @@ public class Centro {
      * @param codigo Codigo del grupo
      * @param nombre Nombre del grupo
      * @param codigoAula Codigo del aula del grupo que hace referencia
-     * @return Grupo con el codigo pasado por parametro
+     * @return PARAMETROS_NO_VALIDO si los parametros no son correctos,
+     * GRUPO_EXISTENTE si ya existe un grupo con ese codigo,
+     * AULA_NO_EXISTENTE si no existe un aula con ese codigo,
+     * CORRECTO si se ha añadido correctamente
      */
     public Salida addGrupo(String codigo, String nombre, String codigoAula){
         if (codigo.isEmpty() || nombre.isEmpty() || codigoAula.isEmpty()){
@@ -195,7 +280,7 @@ public class Centro {
             if (getGrupo(codigo) != null){
                 return Salida.GRUPO_EXISTENTE;
             }
-            return Salida.AULA_EXISTENTE;
+            return Salida.AULA_NO_EXISTENTE;
             
         }
         grupos.add(new Grupo(codigo, nombre, getAula(codigoAula)));
@@ -209,7 +294,7 @@ public class Centro {
      * @param dniProfesor Dni del profesor de la asignatura
      * @return  PARAMETROS_NO_VALIDO si los parametros no son correctos,
      * ASIGNATURA_EXISTENTE si ya existe una asignatura con ese codigo,
-     * PROFESOR_EXISTENTE si no existe un profesor con ese dni,
+     * PROFESOR_NO_EXISTENTE si no existe un profesor con ese dni,
      * CORRECTO si se ha añadido correctamente
      */
     public Salida addAsignatura(String codigo, String nombre, String dniProfesor){
@@ -220,7 +305,7 @@ public class Centro {
             if (getAsignatura(codigo) != null){ 
                 return Salida.ASIGNATURA_EXISTENTE;
             }
-            return Salida.PROFESOR_EXISTENTE;
+            return Salida.PROFESOR_NO_EXISTENTE;
         }
         asignaturas.add(new Asignatura(codigo, nombre, getProfesor(dniProfesor)));
         return Salida.CORRECTO;
