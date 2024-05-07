@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Empleado {
     private final String dni;
@@ -118,7 +119,21 @@ public class Empleado {
         this.salario = salario;
     }
 
-    
+    public class ComparatorNombre implements Comparator<Empleado> {
+
+        @Override
+        public int compare(Empleado o1, Empleado o2) {
+            return o1.nombre.compareTo(o2.nombre);
+        }  
+    }
+
+    public class ComparatorDni implements Comparator<Empleado> {
+
+        @Override
+        public int compare(Empleado o1, Empleado o2) {
+            return o1.getDni().compareTo(o2.dni);
+        }
+    }
 
     
     

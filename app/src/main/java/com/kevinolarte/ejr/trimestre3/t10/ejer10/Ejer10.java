@@ -239,7 +239,7 @@ public class Ejer10 {
         LibInput.scanner.nextLine();
     }
 
-    /*
+    /**
      * Metodo para buscar empleados por rango de sueldo
      */
     public void buscarPorRangoSueldo(){

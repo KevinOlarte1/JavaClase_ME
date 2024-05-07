@@ -11,14 +11,8 @@ import java.util.HashMap;
 import java.util.Queue;
 import java.util.Stack;
 
-import com.kevinolarte.ejr.trimestre3.t10.ejer02.ArrayListEstadisticas;
-import com.kevinolarte.ejr.trimestre3.t10.ejer05.Ejer05;
-import com.kevinolarte.ejr.trimestre3.t10.ejer06.Ejer06;
-import com.kevinolarte.ejr.trimestre3.t10.ejer07.Ejer07;
-import com.kevinolarte.ejr.trimestre3.t10.ejer08.Ejer08;
-import com.kevinolarte.ejr.trimestre3.t10.ejer09.Ejer09;
-import com.kevinolarte.ejr.trimestre3.t10.ejer10.Ejer10;
-import com.kevinolarte.ejr.trimestre3.t10.ejer10.Empleado;
+import com.kevinolarte.ejr.trimestre3.t10.ejer11.Centro;
+import com.kevinolarte.ejr.trimestre3.t10.ejer11.Ejer11;
 import com.kevinolarte.ejr.trimestre3.t10.ejerSuelto.Ejer01;
 import com.kevinolarte.lib.LibConf;
 import com.kevinolarte.propuestas.HashMaps;
@@ -29,7 +23,12 @@ public class App {
     }
 
     public static void main(String[] args) {
-       Ejer10 a = new Ejer10();
+        String codigo = " asd";
+        String nombre = " asd";
+        String dniProfesor = "";
+        if (codigo.isEmpty() || nombre.isEmpty() || dniProfesor.isEmpty()){
+            System.out.println("Bien");
+        }
        
       
        
