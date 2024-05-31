@@ -11,11 +11,17 @@ import java.util.HashMap;
 import java.util.Queue;
 import java.util.Stack;
 
+import javax.swing.JFrame;
+
 import com.kevinolarte.ejr.trimestre3.t10.ejer11.Centro;
 import com.kevinolarte.ejr.trimestre3.t10.ejer11.Ejer11;
-import com.kevinolarte.ejr.trimestre3.t10.ejerSuelto.Ejer01;
-import com.kevinolarte.lib.LibConf;
-import com.kevinolarte.propuestas.HashMaps;
+import com.kevinolarte.ejr.trimestre3.t11.ejer3.Ejer3;
+import com.kevinolarte.ejr.trimestre3.t11.ejer4.Ejercicio;
+import com.kevinolarte.propuestas.engine.graphics.swing.SwingRenderer;
+import com.kevinolarte.propuestas.game.Settings;
+import com.kevinolarte.propuestas.game.SnakeSwingRenderer;
+import com.kevinolarte.propuestas.game.core.SnakeGame;
+
 
 public class App {
     public String getGreeting() {
@@ -23,13 +29,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-        String codigo = " asd";
-        String nombre = " asd";
-        String dniProfesor = "";
-        if (codigo.isEmpty() || nombre.isEmpty() || dniProfesor.isEmpty()){
-            System.out.println("Bien");
-        }
-       
+       Ejercicio a  = new Ejercicio();
       
        
 

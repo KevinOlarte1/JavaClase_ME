@@ -48,5 +48,10 @@ public class Grupo {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return "Grupo [codigo=" + codigo + ", nombre=" + nombre + ", aula=" + aula + "]";
+    }
+
     
 }

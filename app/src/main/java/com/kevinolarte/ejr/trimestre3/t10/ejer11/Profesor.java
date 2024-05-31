@@ -41,6 +41,12 @@ public class Profesor {
             return false;
         return true;
     }
+    
+
+    @Override
+    public String toString() {
+        return "Profesor [dni=" + dni + ", nombre=" + nombre + ", salario=" + salario + "]";
+    }
 
     public String getDni() {
         return dni;

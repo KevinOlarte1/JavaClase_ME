@@ -46,6 +46,10 @@ public class LibRandom {
         return rnd.nextLong(min, max);
     }
 
+    public static boolean randomBoolean() {
+        return rnd.nextBoolean();
+    }
+
 
 
 
